@@ -31,14 +31,14 @@ class Yoast_WooCommerce_SEO {
 	const VERSION = '3.9';
 
 	/**
-	 * @var object $option_instance Instance of the WooCommerce_SEO option management class
-	 */
-	var $option_instance;
-
-	/**
 	 * @var array $options
 	 */
 	var $options = array();
+
+	/**
+	 * @var object $option_instance Instance of the WooCommerce_SEO option management class
+	 */
+	var $option_instance;
 
 	/**
 	 * @var string Name of the option to store plugins setting
@@ -131,7 +131,8 @@ class Yoast_WooCommerce_SEO {
 					add_filter( 'wpseo_breadcrumb_links', array( $this, 'add_attribute_to_breadcrumbs' ) );
 				}
 			}
-		}
+		} // End if().
+
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Only initialize beacon when the License Manager is present.
@@ -675,8 +676,12 @@ class Yoast_WooCommerce_SEO {
 		return $link;
 	}
 
+	/**
+	 * Initializes the beacon.
+	 */
 	public function init_beacon() {
-		$query_var = ( $page = filter_input( INPUT_GET, 'page' ) ) ? $page : '';
+		$page = filter_input( INPUT_GET, 'page' );
+		$query_var = ( $page ) ? $page : '';
 
 		// Only add the helpscout beacon on Yoast SEO pages.
 		if ( $query_var === 'wpseo_woo' ) {
