@@ -25,15 +25,15 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload_52.php' ) ) {
 
 class Yoast_WooCommerce_SEO {
 
+    /**
+	 * @var array $options
+	 */
+	var $options = array();
+
 	/**
 	 * @const string Version of the plugin.
 	 */
 	const VERSION = '3.9';
-
-	/**
-	 * @var array $options
-	 */
-	var $options = array();
 
 	/**
 	 * @var object $option_instance Instance of the WooCommerce_SEO option management class
