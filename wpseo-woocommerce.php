@@ -24,8 +24,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload_52.php' ) ) {
 }
 
 class Yoast_WooCommerce_SEO {
-
-    /**
+	/**
 	 * @var array $options
 	 */
 	var $options = array();
